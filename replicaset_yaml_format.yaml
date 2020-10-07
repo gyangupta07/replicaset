@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nignx-rs2
+  labels:
+    app: nginx-dep1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-dep1
+  template:
+    metadata:
+      labels:
+        app: nginx-dep1
+    spec:
+      containers:
+      - image: nginx
+        imagePullPolicy: Always
+        name: nginx
